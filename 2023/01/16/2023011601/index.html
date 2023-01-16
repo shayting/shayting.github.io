@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    
+    <title>[CSS] 解決 ios safari 100vh 的問題 | Shay 的前端學習筆記</title>
+
+    <meta name="description" content="&lt;p&gt;因為 safari 計算的方式與其他瀏覽器不同，當容器高度設置為 100vh 時，工具列也被算進 100vh 中， 導致底部內容被遮住。  &lt;/p&gt;">
+    <meta name="keywords" content="">
+
+    
+
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content= "[CSS] 解決 ios safari 100vh 的問題 | Shay 的前端學習筆記"  />
+    <meta property="og:description" content= "&lt;p&gt;因為 safari 計算的方式與其他瀏覽器不同，當容器高度設置為 100vh 時，工具列也被算進 100vh 中， 導致底部內容被遮住。  &lt;/p&gt;" />
+    <meta property="og:url" content="https://shayting.github.io/2023/01/16/2023011601/index.html" />
+    <meta property="og:site_name" content="" />
+    <meta property="article:author" content="Shay Ting" />
+    <meta property="article:publisher" content="" />
+    <meta property="og:description" content="&lt;p&gt;因為 safari 計算的方式與其他瀏覽器不同，當容器高度設置為 100vh 時，工具列也被算進 100vh 中， 導致底部內容被遮住。  &lt;/p&gt;" />
+    <meta name="twitter:title" content="[CSS] 解決 ios safari 100vh 的問題 | Shay 的前端學習筆記"/>
+    <meta name="twitter:description" content="&lt;p&gt;因為 safari 計算的方式與其他瀏覽器不同，當容器高度設置為 100vh 時，工具列也被算進 100vh 中， 導致底部內容被遮住。  &lt;/p&gt;"/>
+    <script type="application/ld+json">
+        {
+            "description": "&lt;p&gt;因為 safari 計算的方式與其他瀏覽器不同，當容器高度設置為 100vh 時，工具列也被算進 100vh 中， 導致底部內容被遮住。  &lt;/p&gt;",
+            "author": { "@type": "Person", "name": "Shay Ting" },
+            "@type": "BlogPosting",
+            "url": "https://shayting.github.io/2023/01/16/2023011601/index.html",
+            "publisher": {
+            "@type": "Organization",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://shayting.github.ioundefined"
+            },
+            "name": "Shay Ting"
+            },
+            "headline": "[CSS] 解決 ios safari 100vh 的問題 | Shay 的前端學習筆記",
+            "datePublished": "2023-01-16T03:20:17.000Z",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://shayting.github.io/2023/01/16/2023011601/index.html"
+            },
+            "@context": "http://schema.org"
+        }
+    </script>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧑‍💻</text></svg>">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/dist/build.css?v=1654266144177.css">
+
+
+    
+<link rel="stylesheet" href="/dist/custom.css?v=1654266144177.css">
+
+
+    <script>
+        window.isPost = true
+        window.aomori = {
+            
+            
+            
+        }
+        window.aomori_logo_typed_animated = true
+        window.aomori_search_algolia = false
+
+    </script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+    <div class="container">
+    <header class="header">
+        <div class="header-type">
+            
+            <div class="header-type-inner">
+                
+                    <div id="typed-strings" style="display:none">
+                        <p>Shay 的前端學習筆記</p>
+                    </div>
+                    <a class="header-type-title" id="typed" href="/"></a>
+                
+    
+                
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu-inner">
+                
+                <a href="/">Home</a>
+                
+                <a href="/about">About</a>
+                
+                <a href="/archives">Archives</a>
+                
+            </div>
+            <div class="header-menu-social">
+                
+    <a class="social" target="_blank" href="https://github.com/shayting">
+        <ion-icon name="logo-github"></ion-icon>
+    </a>
+
+            </div>
+        </div>
+
+        <div class="header-menu-mobile">
+            <div class="header-menu-mobile-inner" id="mobile-menu-open">
+                <i class="icon icon-menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="header-menu-mobile-menu">
+        <div class="header-menu-mobile-menu-bg"></div>
+        <div class="header-menu-mobile-menu-wrap">
+            <div class="header-menu-mobile-menu-inner">
+                <div class="header-menu-mobile-menu-close" id="mobile-menu-close">
+                    <i class="icon icon-cross"></i>
+                </div>
+                <div class="header-menu-mobile-menu-list">
+                    
+                    <a href="/">Home</a>
+                    
+                    <a href="/about">About</a>
+                    
+                    <a href="/archives">Archives</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="container">
+        <div class="main">
+            <section class="inner">
+                <section class="inner-main">
+                    <div class="post">
+    <article id="post-clcyft1y80000kkpzg4938077" class="article article-type-post" itemscope
+    itemprop="blogPost">
+
+    <div class="article-inner">
+
+        
+          
+        
+        
+        
+
+        
+        <header class="article-header">
+            
+  
+    <h1 class="article-title" itemprop="name">
+      [CSS] 解決 ios safari 100vh 的問題
+    </h1>
+  
+
+        </header>
+        
+
+        <div class="article-more-info article-more-info-post hairline">
+
+            <div class="article-date">
+  <time datetime="2023-01-16T03:20:17.000Z" itemprop="datePublished">2023-01-16</time>
+</div>
+
+            
+            <div class="article-category">
+                <a class="article-category-link" href="/categories/CSS/">CSS</a>
+            </div>
+            
+
+            
+            <div class="article-tag">
+                <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li></ul>
+            </div>
+            
+
+            
+
+        </div>
+
+        <div class="article-entry post-inner-html hairline" itemprop="articleBody">
+            <p>因為 safari 計算的方式與其他瀏覽器不同，當容器高度設置為 100vh 時，工具列也被算進 100vh 中， 導致底部內容被遮住。  </p>
+<span id="more"></span>
+<p><img src="https://i.imgur.com/34d5IT6.png"><br>image by <a target="_blank" rel="noopener" href="https://maxschmitt.me/posts/css-100vh-mobile-browsers/">Max Schmitt</a> </p>
+<h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><h3 id="1-JS-CSS"><a href="#1-JS-CSS" class="headerlink" title="1. JS + CSS"></a>1. JS + CSS</h3><p>監聽頁面的resize 事件，獲取頁面的innerHeight，動態設置高度。</p>
+<pre><code>&lt;!-- JS  --&gt;
+const heightVH = () =&gt; &#123;
+  // 抓取可視視窗高度 算出目前1vh的值
+  const vh = window.innerHeight * 0.01;
+  // 自訂 --vh 變數，套用剛算出的vh
+  document.documentElement.style.setProperty(&#39;--vh&#39;, `$&#123;vh&#125;px`);
+&#125;;
+ // 監聽頁面的 resize 事件
+window.addEventListener(&#39;resize&#39;, () =&gt; &#123;
+  heightVH();
+&#125;);
+window.addEventListener(&quot;DOMContentLoaded&quot;, heightVH);
+</code></pre>
+<p>CSS 使用方式<br>vh單位 以”var( — vh, 1vh)”替代<br>100vh，請改寫為”calc(var( — vh, 1vh) * 100)”</p>
+<pre><code>height: calc(var( — vh, 1vh) * 100);
+</code></pre>
+<h3 id="2-CSS"><a href="#2-CSS" class="headerlink" title="2. CSS"></a>2. CSS</h3><pre><code>height: 100vh;
+max-height: -webkit-fill-available;
+</code></pre>
+
+        </div>
+
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<nav class="article-nav">
+  
+    <a href="/2023/01/16/2023011602/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-caption">prossimo</div>
+      <div class="article-nav-title">
+        
+          post
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/07/2023010701/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-caption">precedente</div>
+      <div class="article-nav-title">Hexo 使用方式</div>
+    </a>
+  
+</nav>
+
+
+    <section class="share">
+        <div class="share-title">share</div>
+        <a class="share-item" target="_blank"
+            href="https://twitter.com/share?text=[CSS] 解決 ios safari 100vh 的問題 - Shay 的前端學習筆記&url=https%3A%2F%2Fshayting.github.io%2F2023%2F01%2F16%2F2023011601%2F">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+        <a class="share-item" target="_blank"
+            href="https://www.facebook.com/sharer.php?title=[CSS] 解決 ios safari 100vh 的問題 - Shay 的前端學習筆記&u=https%3A%2F%2Fshayting.github.io%2F2023%2F01%2F16%2F2023011601%2F">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <!-- <a class="share-item" target="_blank"
+            href="https://service.weibo.com/share/share.php?title=[CSS] 解決 ios safari 100vh 的問題 - Shay 的前端學習筆記&url=https://shayting.github.io/2023/01/16/2023011601/&pic=">
+            <div class="n-icon n-icon-weibo"></div>
+        </a> -->
+    </section>
+
+</article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+                </section>
+            </section>
+
+            
+            <aside class="sidebar ">
+                
+
+
+<div class="widget" id="widget">
+    
+      
+  <div class="widget-wrap">
+    <div class="widget-inner">
+      <div class="toc post-toc-html"></div>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-cate">
+    <div class="widget-title"><span>Categories</span></div>
+    <div class="widget-inner">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-tags">
+    <div class="widget-title"><span>Tags</span></div>
+    <div class="widget-inner">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Safari/" rel="tag">Safari</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-recent-posts">
+    <div class="widget-title"><span>Recent Posts</span></div>
+    <div class="widget-inner">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/16/2023011602/">post</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/16/2023011601/">[CSS] 解決 ios safari 100vh 的問題</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/07/2023010701/">Hexo 使用方式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-archive">
+    <div class="widget-title"><span>Archive</span></div>
+    <div class="widget-inner">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a></li></ul>
+    </div>
+  </div>
+
+
+    
+</div>
+
+<div id="backtop"><i class="icon icon-arrow-up"></i></div>
+            </aside>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#3c4859" fill-opacity="1" d="M0,160L60,181.3C120,203,240,245,360,240C480,235,600,181,720,186.7C840,192,960,256,1080,261.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+    </div>
+
+    <!-- Please do not remove this -->
+    <!-- 开源不易，请勿删除 -->
+    <div class="footer-wrap">
+        <div class="footer-inner"> 
+            Shay 的前端學習筆記 &copy; 2023<br>
+            Powered By Hexo · Theme By <a href="https://linhong.me/" target="_blank">Aomori</a> · <a href="https://github.com/lh1me/hexo-theme-aomori" target="_blank">Github</a>
+        </div>
+    </div>
+
+</footer>
+
+<script type="module" src="https://unpkg.com/ionicons@6.0.2/dist/ionicons/ionicons.esm.js"></script>
+
+
+
+
+
+
+<script src="/dist/build.js?1654266144177.js"></script>
+
+
+<script src="/dist/custom.js?1654266144177.js"></script>
+
+
+
+
+
+<!-- Google Analytics-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
