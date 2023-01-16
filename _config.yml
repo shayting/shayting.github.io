@@ -104,7 +104,7 @@ theme: aomori
 deploy:
   type: git
   repo: git@github.com:shayting/shayting.github.io.git
-  branch: master
+  branch: gh-pages
   message:
 
 # aomori_customized settings
